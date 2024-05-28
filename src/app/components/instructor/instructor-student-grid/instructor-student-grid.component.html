@@ -1,0 +1,99 @@
+<div class="tak-instruct-group">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="settings-widget">
+                <div class="settings-inner-blk p-0">
+                    <div class="sell-course-head student-meet-head comman-space border-0">
+                        <div class="tak-head d-flex align-items-center">
+                            <div>
+                                <h3>Students</h3>
+                                <p>Meet people taking your course.</p>
+                            </div>
+                            <div class="view-icons">
+                                <a [routerLink]="routes.instructor_student_grid" class="grid-view active"><i-feather name="grid"></i-feather></a>
+                                <a [routerLink]="routes.instructor_student_list" class="list-view"><i-feather name="list"></i-feather></a>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="student-search-form d-flex ">
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form-control" placeholder="Twitter Profile Name">
+                                </div>
+                                <div class="export-cvv-btn">
+                                    <button class="btn btn-primary">Export CSV</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 d-flex" *ngFor="let data of instructorStudentGrid">
+            <div class="student-box flex-fill">
+                <div class="student-box-blks">
+                    <div class="message-text-img">
+                        <a href="javascript:;">
+                            <img class="img-fluid" alt="Students Info" src="assets/img/icon/message-text.svg">
+                        </a>
+                    </div>
+                    <div class="student-img">
+                        <a [routerLink]="routes.students_profile">
+                            <img class="img-fluid" alt="Students Info" [src]="data.img">
+                        </a>
+                    </div>
+                    <div class="student-content pb-0">
+                        <h5><a [routerLink]="routes.students_profile">{{data.name}}</a></h5>
+                        <div class="loc-blk d-flex align-items-center justify-content-center">
+                            <i-feather name="map-pin" class="me-2 feather-map"></i-feather>
+                            <p>{{data.place}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="enrol-student-foot">
+                    <ul>
+                        <li>{{data.content1}} <span>{{data.date}}</span></li>
+                        <li>{{data.content2}}
+                            <div class="instruct-stip d-flex align-items-center">
+                                <span>{{data.number}}</span>
+                                <div class="course-stip progress-stip">
+                                    <div class="progress-bar bg-success progress-bar-striped active-stip"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /pagination -->
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="pagination lms-page mt-0">
+                <li class="page-item prev">
+                    <a class="page-link" href="javascript:;" tabindex="-1"><i class="fas fa-angle-left"></i></a>
+                </li>
+                <li class="page-item first-page active">
+                    <a class="page-link" href="javascript:;">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:;">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:;">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:;">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:;">5</a>
+                </li>
+                <li class="page-item next">
+                    <a class="page-link" href="javascript:;"><i class="fas fa-angle-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /pagination -->
+
+</div>

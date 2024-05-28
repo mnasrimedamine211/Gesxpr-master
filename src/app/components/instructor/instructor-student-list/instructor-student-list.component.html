@@ -1,0 +1,80 @@
+<div class="tak-instruct-group">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="settings-widget">
+                <div class="settings-inner-blk p-0">
+                    <div class="sell-course-head student-meet-head comman-space border-0">
+                        <div class="tak-head d-flex align-items-center">
+                            <div>
+                                <h3>Students</h3>
+                                <p>Meet people taking your course.</p>
+                            </div>
+                            <div class="view-icons">
+                                <a [routerLink]="routes.instructor_student_grid" class="grid-view "><i-feather name="grid"></i-feather></a>
+                                <a [routerLink]="routes.instructor_student_list" class="list-view active"><i-feather name="list"></i-feather></a>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="student-search-form d-flex ">
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form-control" placeholder="Twitter Profile Name">
+                                </div>
+                                <div class="export-cvv-btn">
+                                    <button class="btn btn-primary">Export CSV</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-widget">
+                <div class="settings-inner-blk p-0">
+                    <div class="comman-space pb-0">
+                        <div class="settings-referral-blk table-responsive">
+
+                            <!-- Instructor Users-->
+                            <table class="table table-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="form-check instruct-check-list">
+                                              <input class="form-check-input" type="checkbox"  name="option1"  >
+                                            </div>
+                                        </th>
+                                        <th>NAME</th>
+                                        <th>ENROLLED</th>
+                                        <th>PROGRESS</th>
+                                        <th >LOCATIONS</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of instructorStudentList">
+                                        <td>
+                                            <div class="form-check instruct-check-list">
+                                              <input class="form-check-input" type="checkbox"  name="option1"  >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a [routerLink]="routes.students_profile" class="refer-avatar-blk d-flex align-items-center">
+                                                <img [src]="data.img" class="rounded-circle me-2" alt="Referred User Info">
+                                                <p>{{data.name}}</p>
+                                            </a>
+                                        </td>
+                                        <td>{{data.enrolled}}</td>
+                                        <td>{{data.progress}}</td>
+                                        <td><i-feather name="map-pin" class="me-2 feather-map"></i-feather>{{data.locations}}</td>
+                                        <td><a href="javascript:;" class="btn-style"><i-feather name="clipboard"></i-feather></a></td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            <!-- /Instructor List-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

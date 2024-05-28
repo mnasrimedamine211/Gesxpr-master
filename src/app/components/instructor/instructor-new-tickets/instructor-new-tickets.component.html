@@ -1,0 +1,82 @@
+<!--Dashbord Student -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <!-- Profile Details -->
+            <div class="col-md-12">
+                <div class="filter-grp ticket-grp tiket-suport d-flex align-items-center justify-content-between">
+                    <div>
+                        <h3>Support Tickets</h3>
+                    </div>
+                    <div class="ticket-btn-grp">
+                        <a [routerLink]="routes.instructor_tickets">Back to Tickets</a>
+                    </div>
+                </div>
+                <div class="settings-widget">
+                    <div class="settings-inner-blk add-course-info mat-style new-ticket-blk p-0">
+                        <div class="comman-space">
+                            <h4>Create New Support Ticket</h4>
+                            <div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Ticket Title</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label  class="form-label">Category</label>
+                                    <mat-select class="form-select select country-select" name="sellist1"  [(value)]="selected">
+                                        <mat-option value="1">Choose Category</mat-option>
+                                        <mat-option value="2">Mailing Issue</mat-option>
+                                        <mat-option value="3">Language Issue</mat-option>
+                                        <mat-option value="4">Installation Error</mat-option>
+                                      </mat-select>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="form-label">Priority</label>
+                                    <mat-select class="form-select select country-select" name="sellist1"  [(value)]="selected2">
+                                        <mat-option value="1">Choose Category</mat-option>
+                                        <mat-option value="2">Mailing Issue</mat-option>
+                                        <mat-option value="3">Language Issue</mat-option>
+                                        <mat-option value="4">Installation Error</mat-option>
+                                      </mat-select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="add-course-label">Description</label>
+                                    <div id="editor">
+                                        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                                    </ngx-editor-menu>
+                                    <ngx-editor [editor]="editor">
+                                    </ngx-editor>
+                                </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="add-course-label">Attachment</label>
+                                    <div class="file-drop">
+                                        <form action="#" class="dropzone">
+                                            <!-- <ngx-file-drag-drop>
+                                            </ngx-file-drag-drop> -->
+                                            <ngx-dropzone (change)="onSelect($event)" class="service-upload">
+                                                <ngx-dropzone-label>Drag & Drop files</ngx-dropzone-label>
+                                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                                </ngx-dropzone-image-preview>
+                                            </ngx-dropzone>
+                                        </form>
+                                    </div>
+                                    <div class="accept-drag-file">
+                                      <p>Accept File Type: doc,docx,jpg,jpeg,png,txt,pdf</p>
+                                    </div>
+                                  </div>
+                                <div class="submit-ticket">
+                                    <button type="button" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-dark">Back</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile Details -->
+
+        </div>
+    </div>
+</div>
+<!-- /Dashbord Student -->

@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-4 d-flex">
+        <div class="card instructor-card w-100">
+            <div class="card-body">
+                <div class="instructor-inner">
+                    <h6>REVENUE</h6>
+                    <h4 class="instructor-text-success">$467.34</h4>
+                    <p>Earning this month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 d-flex">
+        <div class="card instructor-card w-100">
+            <div class="card-body">
+                <div class="instructor-inner">
+                    <h6>STUDENTS ENROLLMENTS</h6>
+                    <h4 class="instructor-text-info">12,000</h4>
+                    <p>New this month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 d-flex">
+        <div class="card instructor-card w-100">
+            <div class="card-body">
+                <div class="instructor-inner">
+                    <h6>COURSES RATING</h6>
+                    <h4 class="instructor-text-warning">4.80</h4>
+                    <p>Rating this month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card instructor-card">
+            <div class="card-header">
+                <h4>Earnings</h4>
+            </div>
+            <div class="card-body">
+                <div id="instructor_chart"><apx-chart [series]="Areachart.series"
+                        [chart]="Areachart.chart" [xaxis]="Areachart.xaxis" [yaxis]="Areachart.yaxis"
+                        [stroke]="Areachart.stroke" [tooltip]="Areachart.tooltip"
+                        [dataLabels]="Areachart.dataLabels" [plotOptions]="Areachart.plotOptions"
+                        [fill]="Areachart.fill" [legend]="Areachart.legend"
+                        [grid]="Areachart.grid"></apx-chart></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="settings-widget">
+            <div class="settings-inner-blk p-0">
+                <div class="sell-course-head comman-space">
+                    <h3>Best Selling Courses</h3>
+                </div>
+                <div class="comman-space pb-0">
+                    <div class="settings-tickets-blk course-instruct-blk table-responsive">
+
+                        <!-- Referred Users-->
+                        <table class="table table-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>COURSES</th>
+                                    <th>SALES</th>
+                                    <th>AMOUNT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of instructorEarnings">
+                                    <td>
+                                        <div class="sell-table-group d-flex align-items-center">
+                                            <div class="sell-group-img">
+                                                <a [routerLink]="routes.page_course_details">
+                                                    <img [src]="data.img" class="img-fluid " alt="">
+                                                </a>
+                                            </div>
+                                            <div class="sell-tabel-info">
+                                                <p><a [routerLink]="routes.page_course_details">{{data.courses}}</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{data.sales}}</td>
+                                    <td>{{data.amount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- /Referred Users-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

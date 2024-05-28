@@ -1,0 +1,68 @@
+
+<ng-container *ngIf="student">
+    <!-- Page Wrapper -->
+<div class="page-content instructor-page-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+                <div class="stickybar">
+                    <div class="settings-widget dash-profile mb-3">
+                        <div class="settings-menu p-0">
+                            <div class="profile-bg">    
+                                <img src="assets/img/...........png" alt="">
+                                <div class="profile-img">
+                                    <a [routerLink]="routes.students_profile"><img src="assets/img/student.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="profile-group">
+                                <div class="profile-name text-center">
+                                    <h4><a [routerLink]="routes.students_profile">Student</a></h4>
+                                    <p>Student</p>
+                                </div>
+                                <div class="go-dashboard text-center">
+                                    <a [routerLink]="routes.deposit_student_dashboard" class="btn btn-primary">Trainning Request</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="settings-widget account-settings">
+                        <div class="settings-menu">                           
+                            <ng-container *ngFor="let mainTittle of side_bar_data">
+                                <div [ngClass]="{'instructor-title' :mainTittle.class == true}">
+                                    <h3>{{ mainTittle.tittle }}</h3>
+                                </div>
+                                <ul>
+                                    <ng-container *ngFor="let menu of mainTittle?.menu">
+                                        <li class="nav-item">
+                                            <a [routerLink]="menu.route" [class.active]="page === menu.base" class="nav-link ">
+                                                <i-feather [name]="menu.icon"></i-feather> {{ menu?.menuValue }}
+                                            </a>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </ng-container>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- /Sidebar -->
+
+            <!-- Instructor Content -->
+            <div class="col-xl-9 col-md-8" >
+                <router-outlet></router-outlet>
+            </div>
+            <!-- /Instructor Content -->
+ 
+
+        </div>
+    </div>
+</div>
+<!-- /Page Wrapper -->
+    
+</ng-container>
+
+<ng-container *ngIf="!student">
+    <router-outlet></router-outlet>
+</ng-container>

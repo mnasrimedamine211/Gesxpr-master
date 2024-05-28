@@ -1,0 +1,82 @@
+<!-- Student Header -->
+<div class="course-student-header">
+    <div class="container">
+        <div class="student-group">
+            <div class="course-group ">
+                <div class="course-group-img d-flex">
+                    <a [routerLink]="routes.students_profile"><img src="assets/img/user/user11.jpg" alt="" class="img-fluid"></a>
+                    <div class="d-flex align-items-center">
+                        <div class="course-name">
+                            <h4><a [routerLink]="routes.students_profile">Rolands R</a><span>Beginner</span></h4>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-share ">
+                    <a href="javascript:;" class="btn btn-primary">Account Settings</a>
+                </div>
+            </div>
+        </div>
+        <div class="my-student-list">
+            <ul>
+                <li><a  [routerLink]="routes.deposit_student_dashboard">Dashboard</a></li>
+                <li><a  [routerLink]="routes.course_student">Courses</a></li>
+                <li><a [routerLink]="routes.page_course_course_wishlist">Wishlists</a></li>
+                <li><a [routerLink]="routes.page_course_message">Messages</a></li>
+                <li ><a [routerLink]="routes.page_purchase_history">Purchase history</a></li>
+                <li ><a  [routerLink]="routes.deposit_student">Deposit</a></li>
+                <li class="mb-0"><a class="active" [routerLink]="routes.transactions_student">Transactions</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /Student Header -->
+
+<!--Dashbord Student -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- Profile Details -->
+            <div class="col-xl-12 col-md-12">
+                <div class="settings-widget">
+                    <div class="settings-inner-blk p-0">
+                        <div class="comman-space pb-0">
+                            <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                                <h3>Latest Transactions</h3>
+                            </div>
+                            <div class="settings-tickets-blk table-responsive">
+
+                                <!-- Referred Users-->
+                                <table class="table table-nowrap mb-0">
+                                    <thead>
+                                      <tr>
+                                        <th>Referred ID</th>
+                                        <th>Details</th>
+                                        <th>Amount</th>
+                                        <th>Post Balance</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of transactionStudent">
+                                            <td><a href="javascript:;">{{data.referredId}}</a></td>
+                                            <td>{{data.details}} </td>
+                                            <td><span [ngClass]="{'text-danger': data.status === 'negative' }" class="text-success">{{data.amount}}</span></td>
+
+                                            <td>{{data.postBalance}}</td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                <!-- /Referred Users-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile Details -->
+
+        </div>
+    </div>
+</div>
+<!-- /Dashbord Student -->

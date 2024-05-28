@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="settings-widget">
+            <div class="settings-inner-blk p-0">
+                <div class="sell-course-head comman-space">
+                    <h3>Courses</h3>
+                    <p>Manage your courses and its update like live, draft and insight.</p>
+                </div>
+                <div class="comman-space pb-0">
+                    <div class="instruct-search-blk">
+                        <div class="show-filter choose-search-blk">
+                            <form action="#">
+                                <div class="row gx-2 align-items-center">
+                                    <div class="col-md-6 col-item">
+                                        <div class=" search-group">
+                                            <i-feather name="search"></i-feather>
+                                            <input type="text" class="form-control"
+                                            [(ngModel)]="searchDataValue" name="one"
+											(ngModelChange)="searchData(searchDataValue)" 
+                                                placeholder="Search our courses">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-item">
+                                        <div class="form-group select-form mb-0">
+                                            <mat-select class="form-select select"  [(value)]="selected">
+                                                <mat-option value="1">Choose</mat-option>
+                                                <mat-option value="angular">Angular</mat-option>
+                                                <mat-option value="nodejs">Node Js</mat-option>
+                                                <mat-option value="react">React</mat-option>
+                                              </mat-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="settings-tickets-blk course-instruct-blk table-responsive">
+
+                        <!-- Referred Users-->
+                        <table class="table table-nowrap mb-2">
+                            <thead>
+                                <tr>
+                                    <th>COURSES</th>
+                                    <th>STUDENTS</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of instructorCourse">
+                                    <td>
+                                        <div class="sell-table-group d-flex align-items-center">
+                                            <div class="sell-group-img">
+                                                <a [routerLink]="routes.page_course_details">
+                                                    <img [src]="data.img1" class="img-fluid " alt="">
+                                                </a>
+                                            </div>
+                                            <div class="sell-tabel-info">
+                                                <p><a
+                                                        [routerLink]="routes.page_course_details">{{data.content}}</a>
+                                                </p>
+                                                <div
+                                                    class="course-info d-flex align-items-center border-bottom-0 pb-0">
+                                                    <div class="rating-img d-flex align-items-center">
+                                                        <img [src]="data.img2" alt="">
+                                                        <p>{{data.lesson}}</p>
+                                                    </div>
+                                                    <div class="course-view d-flex align-items-center">
+                                                        <img [src]="data.img3" alt="">
+                                                        <p>{{data.time}}</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div [ngClass]="{'progress-bar bg-success progress-bar-striped active-stip course-stip progress-stip course-bar': data.progress === 'progress stip'}" class="progress-bar bg-success progress-bar-striped active-stip"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{data.students}}</td>
+                                    <td><span
+                                            [ngClass]="{'info-low': data.status === 'Live', 'info-inter' : data.status === 'Draft', 'info-medium' : data.status === 'Pending', 'info-high' : data.status === 'Deleted' }"
+                                            class="badge">{{data.status}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- /Referred Users-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

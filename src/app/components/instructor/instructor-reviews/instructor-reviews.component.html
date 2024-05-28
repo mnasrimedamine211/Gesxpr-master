@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="settings-widget">
+            <div class="settings-inner-blk p-0">
+                <div class="sell-course-head comman-space">
+                    <h3>Reviews</h3>
+                    <p>You have full control to manage your own account setting.</p>
+                </div>
+                <div class="comman-space pb-0">
+                    <div class="instruct-search-blk mb-0">
+                        <div class="show-filter all-select-blk">
+                            <form action="#">
+                                <div class="row gx-2 align-items-center">
+                                    <div class="col-md-6 col-lg-3 col-item">
+                                        <div class="form-group select-form mb-1">
+                                            <mat-select class="form-select select"  [(value)]="selected">
+                                                <mat-option value="1">All</mat-option>
+                                                <mat-option value="r1">review 1</mat-option>
+                                                <mat-option value="r2">review 2</mat-option>
+                                                <mat-option value="r3">review 3</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 col-item">
+                                        <div class="form-group select-form mb-1">
+
+                                            <mat-select class="form-select select"  [(value)]="selected2">
+                                                <mat-option value="1">Rating</mat-option>
+                                                <mat-option value="r1">5</mat-option>
+                                                <mat-option value="r2">4</mat-option>
+                                                <mat-option value="r3">3</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 col-item">
+                                        <div class="form-group select-form mb-1">
+                                            <mat-select class="form-select select"  [(value)]="selected3">
+                                                <mat-option value="1">Sort</mat-option>
+                                                <mat-option value="r1">Sort 1</mat-option>
+                                                <mat-option value="r2">Sort 2</mat-option>
+                                                <mat-option value="r3">Sort 3</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="comman-space bdr-bottom-line" *ngFor="let data of instructorReviews">
+                    <div class="instruct-review-blk ">
+                        <div class="review-item">
+                            <div class="instructor-wrap border-0 m-0">
+                                <div class="about-instructor">
+                                    <div class="abt-instructor-img">
+                                        <a [routerLink]="routes.instructor_instructor_profile"><img [src]="data.img" alt="img" class="img-fluid"></a>
+                                    </div>
+                                    <div class="instructor-detail">
+                                        <h5><a [routerLink]="routes.instructor_instructor_profile">{{data.name}}</a></h5>
+                                        <p>{{data.role}}</p>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star me-1"></i>
+                                </div>
+                            </div>
+                            <p class="rev-info">{{data.content}}</p>
+                            <a href="javascript:;" class="btn btn-reply"><i-feather name="corner-up-left" class="feather-icon"></i-feather> {{data.setting}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

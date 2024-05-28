@@ -1,0 +1,120 @@
+<!-- Breadcrumb -->
+<div class="page-banner instructor-bg-blk">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="instructor-profile d-flex align-items-center">
+                    <div class="instructor-profile-pic">
+                        <a [routerLink]="routes.instructor_instructor_profile">
+                            <img src="assets/img/instructor/profile-avatar.jpg" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="instructor-profile-content">
+                        <h4><a [routerLink]="routes.instructor_instructor_profile">Jenny Wilson <span>Beginner</span></a></h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="instructor-profile-menu">
+                    <ul class="nav">
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <div class="instructor-profile-menu-img">
+                                    <img src="assets/img/icon/icon-25.svg" alt="">
+                                </div>
+                                <div class="instructor-profile-menu-content">
+                                    <h4>32</h4>
+                                    <p>Courses</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <div class="instructor-profile-menu-img">
+                                    <img src="assets/img/icon/icon-26.svg" alt="">
+                                </div>
+                                <div class="instructor-profile-menu-content">
+                                    <h4>11,604</h4>
+                                    <p>Total Students</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <div class="instructor-profile-menu-img">
+                                    <img src="assets/img/icon/icon-27.svg" alt="">
+                                </div>
+                                <div class="instructor-profile-menu-content">
+                                    <h4>12,230</h4>
+                                    <p>Reviews</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="instructor-profile-text">
+                    <p>I am an Innovation designer focussing on UX/UI based in Berlin. As a creative resident at Figma
+                        explored the city of the future and how new technologies like AI, voice control, and augmented
+                        reality will change our interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Instructor Dashboard -->
+<section class="page-content course-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card instructor-card">
+                    <div class="card-header">
+                        <h4>My Courses</h4>
+                        <a [routerLink]="routes.page_add_course" class="btn btn-dark">Create New Course</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="instructor-grid" *ngFor="let data of myCourse">
+                            <div class="product-img">
+                                <a [routerLink]="routes.page_course_details">
+                                    <img [src]="data.img1" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="instructor-product-content">
+                                <div class="head-course-title">
+                                    <h3 class="title"><a [routerLink]="routes.page_course_details">{{data.content}}</a>
+                                    </h3>
+                                </div>
+                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
+                                    <div class="rating-img d-flex align-items-center">
+                                        <img [src]="data.img2" alt="">
+                                        <p>{{data.lesson}}</p>
+                                    </div>
+                                    <div class="course-view d-flex align-items-center">
+                                        <img [src]="data.img3" alt="">
+                                        <p>{{data.time}}</p>
+                                    </div>
+                                </div>
+                                <div class="rating mb-0">
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star filled me-1"></i>
+                                    <i class="fas fa-star me-1"></i>
+                                    <span class="d-inline-block average-rating"><span>{{data.rating}}</span>
+                                        {{data.ratingNum}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Instructor Dashboard -->

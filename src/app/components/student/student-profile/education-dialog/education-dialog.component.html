@@ -1,0 +1,104 @@
+<div class="modal-header">
+  <h5 class="subs-title">Education</h5>
+  <mat-icon class="closeIcon" (click)="closeDialog()">close</mat-icon>
+</div>
+<div mat-dialog-content>
+  <div class="edu-wrap" *ngFor="let item of data; let i = index">
+    <div class="edu-name">
+      <span>{{ item.heading.charAt(0).toUpperCase() }}</span>
+    </div>
+    <div class="edu-detail" [formGroup]="educationForms[i]">
+      <h6>
+        <span *ngIf="!editingHeading[i]">{{ item.heading }}</span>
+        <input *ngIf="editingHeading[i]" formControlName="heading" />
+        <mat-icon class="icon" (click)="toggleEdit(i, 'heading')">
+          {{ editingHeading[i] ? "check" : "edit" }}
+        </mat-icon>
+        <mat-icon class="icon" (click)="deleteEducation(i)">delete</mat-icon>
+      </h6>
+      <p class="edu-duration">
+        <span *ngIf="!editingParagraph[i]">{{ item.paragraph }}</span>
+        <input *ngIf="editingParagraph[i]" formControlName="paragraph" />
+        <mat-icon class="icon" (click)="toggleEdit(i, 'paragraph')">
+          {{ editingParagraph[i] ? "check" : "edit" }}
+        </mat-icon>
+      </p>
+      <p>
+        <span *ngIf="!editingContent[i]">{{ item.content }}</span>
+        <textarea *ngIf="editingContent[i]" formControlName="content" style="min-width: 100%;" ></textarea>
+        <mat-icon class="icon" (click)="toggleEdit(i, 'content')">
+          {{ editingContent[i] ? "check" : "edit" }}
+        </mat-icon>
+      </p>
+    </div>
+  </div>
+
+  <!-- New Education Form -->
+  <form
+    class="new-edu-form"
+    [formGroup]="newEducationForm"
+    *ngIf="addNewEducation"
+    (ngSubmit)="addEducation()"
+  >
+    <h6>Add New Education</h6>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label class="form-control-label">Diploma</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            formControlName="heading"
+            placeholder="Diploma"
+          />
+          <span class="errors" *ngIf="newEducationForm.get('heading')!.hasError('required') && newEducationForm.get('heading')!.touched">
+            Diploma is required
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label class="form-control-label">Establishment and date</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            formControlName="paragraph"
+            placeholder="Establishment and date"
+          />
+          <span  class="errors" *ngIf="newEducationForm.get('paragraph')!.hasError('required') && newEducationForm.get('paragraph')!.touched">
+            Establishment is required
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label class="form-control-label">Description</label>
+          <textarea
+            required
+            style="min-width: 100%"
+            class="form-control"
+            formControlName="content"
+            placeholder="Description"
+          ></textarea>
+          <span  class="errors" *ngIf="newEducationForm.get('content')!.hasError('required') && newEducationForm.get('content')!.touched">
+            Description is required
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <button mat-button class="btn btn-primary" type="submit">Add</button>
+  </form>
+</div>
+<div mat-dialog-actions *ngIf="!addNewEducation">
+  <button
+    mat-button
+    class="btn btn-primary"
+    style="margin-left: auto"
+    (click)="addNew()"
+  >
+    Add new education
+  </button>
+</div>

@@ -1,0 +1,100 @@
+<!-- Breadcrumb -->
+<div class="page-banner instructor-bg-blk">
+    <div class="container">
+        <div class="row align-items-center student-group">
+            <div class="col-lg-6 col-md-12">
+                <div class="instructor-profile d-flex align-items-center">
+                    <div class="instructor-profile-pic">
+                        <a [routerLink]="routes.instructor_instructor_profile">
+                            <img src="assets/img/instructor/profile-avatar.jpg" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="instructor-profile-content">
+                        <h4><a [routerLink]="routes.instructor_instructor_profile">Supervisor </a></h4>
+                        <p>Supervisor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="instructor-profile-menu">
+                    <ul class="nav">
+                        <li *ngFor="let data of transactionInstructorProfile">
+                            <div class="d-flex align-items-center">
+                                <div class="instructor-profile-menu-img">
+                                    <img [src]="data.img" alt="">
+                                </div>
+                                <div class="instructor-profile-menu-content">
+                                    <h4>{{data.heading}}</h4>
+                                    <p>{{data.paragraph}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="my-student-list">
+                    <ul>
+                        <li><a  [routerLink]="routes.instructor_deposit_dashboard">Dashboard</a></li>
+                        <li><a  href="javascript:;">Courses</a></li>
+                        <li><a [routerLink]="routes.instructor_withdrawal_instructor">Withdrawal</a></li>
+                        <li ><a href="javascript:;">Purchase history</a></li>
+                        <li ><a [routerLink]="routes.instructor_deposit_instructor">Deposit</a></li>
+                        <li class="mb-0"><a class="active" [routerLink]="routes.instructor_transactions_instructor">Transactions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!--Dashbord Student -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- Profile Details -->
+            <div class="col-xl-12 col-md-12">
+                <div class="settings-widget">
+                    <div class="settings-inner-blk p-0">
+                        <div class="comman-space pb-0">
+                            <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                                <h3>Latest Transactions</h3>
+                            </div>
+                            <div class="settings-tickets-blk table-responsive">
+
+                                <!-- Referred Users-->
+                                <table class="table table-nowrap mb-0">
+                                    <thead>
+                                      <tr>
+                                        <th>Referred ID</th>
+                                        <th>Details</th>
+                                        <th>Amount</th>
+                                        <th>Post Balance</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of transactionsInstructor">
+                                            <td><a href="javascript:;">{{data.referredId}}</a></td>
+                                            <td>{{data.details}}</td>
+                                            <td><span [ngClass]="{'text-danger': data.status === 'negative' }" class="text-success" class="text-success">{{data.amount}}</span></td>
+                                            <td>{{data.postBalance}}</td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                <!-- /Referred Users-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile Details -->
+
+        </div>
+    </div>
+</div>
+<!-- /Dashbord Student -->

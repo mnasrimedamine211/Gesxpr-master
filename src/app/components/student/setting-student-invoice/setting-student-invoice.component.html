@@ -1,0 +1,36 @@
+<div class="settings-widget profile-details">
+  <div class="settings-inner-blk p-0">
+      <div class="profile-heading">
+          <h3>Invoices</h3>
+          <p>You can find all of your order Invoices.</p>
+      </div>
+      <div class="comman-space pb-0">
+              <div class="settings-invoice-blk table-responsive">
+
+                  <!-- Invoice info-->
+                  <table class="table table-borderless mb-0">
+                      <thead>
+                        <tr>
+                          <th>order id</th>
+                          <th>date</th>
+                          <th>amount</th>
+                          <th>status</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of settingStudentInvoice">
+                          <td><a [routerLink]="routes.view_invoice_student" class="invoice-no">{{data.orderId}}</a></td>
+                          <td>{{data.date}}</td>
+                          <td>{{data.amount}}</td>
+                          <td><span [ngClass]="{'info-low': data.status === 'Completed', 'info-high' : data.status === 'Due' }" class="badge">{{data.status}}</span></td>
+                          <td><a href="javascript:;" class="btn-style">	<i-feather name="download"></i-feather></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  <!-- /Invoice info-->
+
+              </div>
+      </div>
+  </div>
+</div>

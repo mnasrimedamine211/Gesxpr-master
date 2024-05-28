@@ -1,0 +1,82 @@
+<div class="settings-widget profile-details">
+    <div class="settings-menu p-0">
+        <div class="profile-heading">
+            <h3>Profile Details</h3>
+            <p>You have full control to manage your own account setting.</p>
+        </div>
+        <div class="course-group mb-0 d-flex">
+            <div class="course-group-img d-flex align-items-center">
+                <a [routerLink]="routes.students_profile"><img src="assets/img/student.png" alt="" class="img-fluid"></a>
+                <div class="course-name">
+                    <h4><a [routerLink]="routes.students_profile">Your avatar</a></h4>
+                    <p>PNG or JPG no bigger than 800px wide and tall.</p>
+                </div>
+            </div>
+            <div class="profile-share d-flex align-items-center justify-content-center">
+                <a href="javascript:;" class="btn btn-success">Update</a>
+                <a href="javascript:;" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <div class="checkout-form personal-address add-course-info ">
+            <div class="personal-info-head">
+                <h4>Personal Details</h4>
+                <p>Edit your personal information and address.</p>
+            </div>
+            
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your first Name" [(ngModel)]="editproRequest.fullname" name="fullname">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Email</label>
+                            <input type="text" class="form-control" placeholder="Enter your email" [(ngModel)]="editproRequest.email" name="email">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label"> educational establishment</label>
+                            <input type="text" class="form-control" placeholder="Enter your educational establishment"  [(ngModel)]="editproRequest.etablissement" name="etablissement">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Resume</label>
+                            <input type="text" class="form-control" placeholder="Enter your resume" [(ngModel)]="editproRequest.cv" name="cv">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Identity Card</label>
+                            <input type="text" class="form-control" placeholder="identity card" [(ngModel)]="editproRequest.cin" name="cin">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Phone</label>
+                            <input type="text" class="form-control" placeholder="Enter your phone number " [(ngModel)]="editproRequest.telephone" name="telephone">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Educational Level </label>
+                            <input type="text" class="form-control" placeholder="Enter your Educational Level  " [(ngModel)]="editproRequest.niveau" name="niveau">
+                        </div>
+                    </div>
+                    
+                    
+                   
+                    
+                    
+                    <div class="update-profile">
+                        <button type="button" (click)="updateprofilStagiaire()" class="btn btn-primary">Update Profile</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

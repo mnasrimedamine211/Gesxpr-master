@@ -1,0 +1,17 @@
+.icon {
+  height: 16px;
+  width: 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.new-skill-item {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.new-skill-item input {
+  flex: 1;
+  margin-right: 8px;
+  padding: 4px;
+}
